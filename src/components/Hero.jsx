@@ -46,7 +46,7 @@ const Hero = () => {
     <section className="min-h-[100dvh] lg:h-[100dvh] w-full flex items-center bg-gray-900 lg:bg-white text-sp-black overflow-hidden relative pt-[80px] border-b-[8px] border-sp-black box-border">
       
       {/* MOBILE FULL-BLEED BACKGROUND IMAGE */}
-      <div className="absolute inset-0 block lg:hidden z-0">
+      <div className="absolute inset-0 block lg:hidden z-0 border-b-[6px] border-sp-black overflow-hidden">
         <AnimatePresence initial={false}>
             <motion.div
                 key={`img-mobile-${current}`}
@@ -81,22 +81,22 @@ const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full h-[calc(100vh-80px)] lg:h-full lg:max-w-[85rem] lg:mx-auto flex flex-col justify-end lg:justify-center">
-        <div className="flex flex-col lg:flex-row items-center gap-0 lg:gap-16 w-full h-full lg:h-[90%] lg:px-8">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 h-[calc(100vh-80px)] lg:h-full lg:max-w-[85rem] lg:mx-auto flex flex-col justify-end lg:justify-center py-6 lg:py-6">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-0 lg:gap-12 xl:gap-16 w-full h-full lg:h-[90%] lg:max-h-[700px]">
           
           {/* Text Side (Docked Bottom Sheet on Mobile, Standard Flex on Desktop) */}
-          <div className="w-full flex-1 lg:pr-8 flex flex-col justify-end lg:justify-center mt-auto lg:mt-0 z-20">
+          <div className="w-full flex-1 lg:pr-8 flex flex-col justify-end lg:justify-center mt-auto lg:mt-0 z-20 h-full">
              
              {/* Brutalist Container for Mobile Panel */}
-             <div className="bg-white border-t-[4px] lg:border-none border-sp-black px-5 py-6 sm:p-8 lg:p-0 lg:bg-transparent w-full">
+             <div className="bg-white border-t-[4px] lg:border-none border-sp-black px-6 py-8 sm:p-8 lg:p-0 lg:bg-transparent -mx-4 sm:-mx-6 lg:mx-0 w-auto lg:w-full self-stretch">
                  
                  {/* Brutalist Badge */}
-                 <div className="inline-block px-3 lg:px-4 py-1 border-[2px] border-sp-black bg-white text-sp-black font-bold text-[10px] lg:text-xs tracking-[0.2em] uppercase mb-4 lg:mb-8 self-start shadow-[2px_2px_0_0_#000] lg:shadow-none">
+                 <div className="inline-block px-3 lg:px-4 py-1 border-[2px] border-sp-black bg-white text-sp-black font-bold text-[10px] lg:text-xs tracking-[0.2em] uppercase mb-4 lg:mb-6 self-start shadow-[2px_2px_0_0_#000] lg:shadow-none">
                     Pioneering Space
                  </div>
                  
                  {/* Text container */}
-                 <div className="w-full flex flex-col justify-start relative lg:min-h-[380px] mb-6 lg:mb-0">
+                 <div className="w-full flex flex-col justify-start relative lg:min-h-[220px] xl:min-h-[300px] mb-4 lg:mb-0">
                    <AnimatePresence mode="wait">
                       <motion.div
                         key={`text-${current}`}
@@ -106,7 +106,7 @@ const Hero = () => {
                         transition={{ duration: 0.4, ease: "easeOut" }}
                         className="flex flex-col"
                       >
-                         <h1 className="flex flex-col items-start text-[2.5rem] sm:text-5xl xl:text-[4.5rem] font-black tracking-tighter leading-[1.1] lg:leading-[1.05] mb-5 lg:mb-8 font-sans text-sp-black uppercase">
+                         <h1 className="flex flex-col items-start text-[2.5rem] sm:text-5xl lg:text-[3.25rem] xl:text-[4rem] font-black tracking-tighter leading-[1.1] lg:leading-[1.05] mb-4 lg:mb-6 font-sans text-sp-black uppercase">
                            {slides[current].title.map((line, idx) => (
                               <span key={idx} className={`max-w-full break-words ${idx === slides[current].highlightIndex ? 'bg-sp-blue text-white px-2 lg:px-3 py-1 my-[2px] lg:my-2 border-[3px] lg:border-[4px] border-sp-black' : ''}`}>
                                  {line}
@@ -115,10 +115,10 @@ const Hero = () => {
                          </h1>
                          
                          <div className="border-l-[4px] lg:border-l-[6px] border-sp-blue pl-4 lg:pl-6">
-                           <p className="text-base sm:text-lg lg:text-2xl font-bold text-gray-800 leading-tight mb-1 sm:mb-2">
+                           <p className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-gray-800 leading-tight mb-1 lg:mb-2">
                               Interactive Learning
                            </p>
-                           <p className="text-[0.95rem] sm:text-base lg:text-xl text-gray-600 max-w-lg leading-relaxed font-medium">
+                           <p className="text-[0.95rem] sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-lg leading-relaxed font-medium">
                              {slides[current].desc}
                            </p>
                          </div>
@@ -127,7 +127,7 @@ const Hero = () => {
                  </div>
 
                  {/* Brutalist CTA Button */}
-                 <div className="flex gap-4 mt-2 lg:mt-0">
+                 <div className="flex gap-4 mt-2 lg:mt-6">
                     <a href="/what-we-do" className="bg-sp-black text-white px-6 sm:px-8 py-3.5 lg:py-4 font-black uppercase tracking-widest text-sm hover:bg-sp-blue transition-colors border-[3px] border-sp-black lg:border-transparent hover:border-sp-black w-full sm:w-auto text-center shadow-[4px_4px_0_0_#4F46E5] lg:shadow-none">
                       Explore Programs
                     </a>
@@ -137,10 +137,10 @@ const Hero = () => {
           </div>
 
           {/* Right Image Side Carousel - Brutalist Redesign (Desktop Only) */}
-          <div className="hidden lg:flex w-full lg:flex-1 h-[600px] min-h-[400px] shrink-0 relative z-20 items-center justify-center">
+          <div className="hidden lg:flex w-full lg:flex-1 h-[450px] xl:h-[550px] min-h-[400px] shrink-0 relative z-20 items-center justify-center">
              
              {/* Stark Outer Frame */}
-             <div className="relative w-full h-full border-[6px] border-sp-black bg-gray-100 p-5">
+             <div className="relative w-full h-full border-[6px] border-sp-black bg-gray-100 p-4 xl:p-5">
                 
                 {/* Inner Image Frame */}
                 <div className="relative w-full h-full bg-gray-200 overflow-hidden border-[4px] border-sp-black/10 group">
