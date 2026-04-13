@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-logo: "Orbitron", sans-serif;
+
+  --color-sp-blue: #4F46E5;
+  --color-sp-black: #0B0F19;
+  --color-sp-white: #F8FAFC;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-sp-white text-sp-black;
+  }
+}
