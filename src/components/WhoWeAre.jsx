@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhoWeAre = () => {
   return (
-    <section className="min-h-[100dvh] lg:h-[100dvh] w-full pt-[100px] pb-12 lg:pt-[80px] lg:pb-0 bg-white flex flex-col justify-center lg:overflow-hidden box-border">
+    <section className="min-h-[80dvh] w-full pt-[120px] pb-24 bg-white flex flex-col justify-center box-border">
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col lg:flex-row gap-8 sm:gap-12 lg:gap-24 items-center">
         
         {/* Left Typography Block */}
