@@ -9,7 +9,7 @@ const WhoWeAre = () => {
         <div className="w-full lg:w-3/5 flex flex-col gap-6">
             <div className="self-start border-[3px] border-sp-black px-4 py-2 mb-6">
                <span className="text-sp-black font-black tracking-[0.2em] uppercase text-sm sm:text-base">
-                 Spectra Organization
+                 Antariksa Foundation
                </span>
             </div>
 
@@ -24,7 +24,7 @@ const WhoWeAre = () => {
         <div className="w-full lg:w-2/5 flex flex-col gap-10 lg:pl-10">
             <div>
                <p className="text-2xl sm:text-3xl lg:text-4xl text-sp-black font-bold leading-tight tracking-tight">
-                 We are a Space Education Organisation which gives hands-on demonstrations and sessions to increase awareness about the space sector.
+                 We are a student-led Non-Profit Organization building the space workforce of the future through experiential learning, community-building, and joint R&D in collaboration with academia, government, and industry.
                </p>
             </div>
             
@@ -32,7 +32,7 @@ const WhoWeAre = () => {
 
             <div>
                <p className="text-xl sm:text-2xl text-gray-500 font-medium leading-relaxed">
-                 We are a bunch of engineering students trying to do this mission to teach and increase awareness to the new generation of students.
+                 By bridging the gap between theoretical knowledge and aerospace practice, we provide students with world-class hands-on exploration tools.
                </p>
             </div>
         </div>

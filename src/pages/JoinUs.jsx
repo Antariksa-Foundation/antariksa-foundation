@@ -60,7 +60,7 @@ const JoinUs = () => {
                       </div>
 
                       <div className="space-y-2">
-                         <label className="text-xs font-bold text-sp-black uppercase tracking-widest">Why Spectra?</label>
+                         <label className="text-xs font-bold text-sp-black uppercase tracking-widest">Why Antariksa Foundation?</label>
                          <textarea rows={4} className="w-full bg-white border-[3px] border-sp-black px-4 py-3 focus:outline-none rounded-none resize-none text-lg" placeholder="Tell us why you want to teach space science..."></textarea>
                       </div>
 

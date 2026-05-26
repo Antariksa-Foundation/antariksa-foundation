@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <img src="/spectra-logo.png" alt="Spectra Logo" className="w-32 sm:w-40 md:w-48 h-auto object-contain" />
+              <img src="/antariksa_logo_png.png" alt="Antariksa Foundation Logo" className="w-32 sm:w-40 md:w-48 h-[3.5rem] object-contain" />
             </Link>
           </div>
           

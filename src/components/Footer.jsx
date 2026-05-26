@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
          <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img src="/spectra-logo.png" alt="Spectra Logo" className="h-[4.5rem] w-auto brightness-0 invert" />
+              <img src="/antariksa_logo_png.png" alt="Antariksa Foundation Logo" className="h-[4.5rem] w-auto brightness-0 invert" />
             </Link>
             <p className="text-gray-400 max-w-sm leading-relaxed">
-              Empowering the next generation through hands-on space education. By engineering students, for students.
+              Building the space workforce of the future through experiential learning, community-building, and joint R&D.
             </p>
          </div>
          <div>
@@ -29,7 +29,7 @@ const Footer = () => {
          </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-         <span>© {new Date().getFullYear()} Spectra Education. All rights reserved.</span>
+         <span>© {new Date().getFullYear()} Antariksa Foundation. All rights reserved.</span>
       </div>
     </footer>
   );
