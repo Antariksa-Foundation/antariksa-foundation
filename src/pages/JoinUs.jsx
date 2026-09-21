@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const JoinUs = () => {
   return (
-    <div className="pt-[100px] pb-24 min-h-screen bg-white selection:bg-sp-blue selection:text-white">
+    <div className="pt-[132px] pb-24 min-h-screen bg-white selection:bg-sp-blue selection:text-white">
        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-stretch">

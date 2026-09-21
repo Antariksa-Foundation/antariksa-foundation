@@ -29,7 +29,10 @@ const Footer = () => {
          </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-         <span>© {new Date().getFullYear()} Antariksa Foundation. All rights reserved.</span>
+         <div className="flex flex-col gap-1 items-center md:items-start w-full">
+           <span>&copy; {new Date().getFullYear()} Antariksa Foundation. All rights reserved.</span>
+           <span className="text-gray-600 text-[10px] uppercase tracking-widest font-bold mt-2">Registered Legal Name: Antariksa Foundation for Education Skill Development and Exploration</span>
+         </div>
       </div>
     </footer>
   );

@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
 import { MoveRight } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient';
 
 const Home = () => {
+  const [featuredImages, setFeaturedImages] = useState([]);
+
+  useEffect(() => {
+    async function loadFeatured() {
+      const { data } = await supabase
+        .from('gallery')
+        .select('url, title')
+        .eq('is_featured', true)
+        .order('created_at', { ascending: false })
+        .limit(2);
+      
+      if (data && data.length > 0) {
+        setFeaturedImages(data);
+      }
+    }
+    loadFeatured();
+  }, []);
+
+  // Fallback images in case there are no featured images in the DB yet
+  const img1 = featuredImages[0]?.url || "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=1200&auto=format&fit=crop";
+  const img2 = featuredImages[1]?.url || "https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=1200&auto=format&fit=crop";
+
   return (
     <div className="bg-white overflow-hidden selection:bg-sp-blue selection:text-white">
       <Hero />
@@ -32,7 +55,11 @@ const Home = () => {
                
                <div className="w-full relative">
                   <div className="w-full aspect-[4/3] border-[6px] border-sp-black bg-gray-100 p-3 sm:p-5">
-                     <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?q=80&w=1200&auto=format&fit=crop" alt="Earth from space" className="w-full h-full object-cover filter contrast-[1.2] saturate-150" />
+                     {img1.match(/\.(mp4|webm|ogg)$/i) ? (
+                        <video src={img1} autoPlay muted loop playsInline className="w-full h-full object-cover filter contrast-[1.1] saturate-150" />
+                     ) : (
+                        <img src={img1} alt="Featured 1" className="w-full h-full object-cover filter contrast-[1.2] saturate-150" />
+                     )}
                      {/* Overlay Graphic Element */}
                      <div className="absolute -bottom-6 -left-6 bg-sp-blue text-white p-5 border-[4px] border-sp-black hidden sm:block">
                         <span className="font-black text-3xl block">100%</span>
@@ -52,7 +79,11 @@ const Home = () => {
                
                <div className="w-full relative order-2 lg:order-1">
                   <div className="w-full aspect-[4/3] border-[6px] border-sp-black bg-sp-black p-3 sm:p-5">
-                     <img src="https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=1200&auto=format&fit=crop" alt="Students learning" className="w-full h-full object-cover grayscale contrast-[1.15]" />
+                     {img2.match(/\.(mp4|webm|ogg)$/i) ? (
+                        <video src={img2} autoPlay muted loop playsInline className="w-full h-full object-cover filter contrast-[1.1]" />
+                     ) : (
+                        <img src={img2} alt="Featured 2" className="w-full h-full object-cover grayscale contrast-[1.15]" />
+                     )}
                   </div>
                </div>
 

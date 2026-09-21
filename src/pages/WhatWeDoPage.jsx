@@ -3,7 +3,7 @@ import { Rocket, Satellite, Telescope, BrainCircuit } from 'lucide-react';
 
 const WhatWeDo = () => {
   return (
-    <div className="pt-[100px] min-h-screen bg-sp-white pb-24 selection:bg-sp-blue selection:text-white">
+    <div className="pt-[132px] min-h-screen bg-sp-white pb-24 selection:bg-sp-blue selection:text-white">
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
          
          <div className="mb-16 lg:mb-24">

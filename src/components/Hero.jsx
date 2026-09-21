@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '../lib/supabaseClient';
 
-const slides = [
+const FALLBACK_SLIDES = [
   {
     id: 1,
     img: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=1200&auto=format&fit=crop",
@@ -15,35 +16,40 @@ const slides = [
     title: ["Master", "Orbital", "Mechanics Today."],
     highlightIndex: 1,
     desc: "Take hands-on courses focusing on gravitational assists, orbital trajectories, and the fundamental math that powers satellites."
-  },
-  {
-    id: 3,
-    img: "https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=1200&auto=format&fit=crop",
-    title: ["Gaze Into", "Deep Space", "Astronomy."],
-    highlightIndex: 1,
-    desc: "Observe celestial bodies firsthand with our professional optics program, bringing the stars down to the schoolyard."
-  },
-  {
-    id: 4,
-    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-    title: ["Overcome", "Engineering", "Challenges."],
-    highlightIndex: 1,
-    desc: "Collaborative building, problem-solving workshops and rover construction competitions."
   }
 ];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const [slides, setSlides] = useState(FALLBACK_SLIDES);
 
   useEffect(() => {
+    async function fetchSlides() {
+      const { data } = await supabase.from('hero_slides').select('*').order('sort_order', { ascending: true });
+      if (data && data.length > 0) {
+        const mappedSlides = data.map(row => ({
+          id: row.id,
+          img: row.image_url,
+          title: [row.title_line_1, row.title_line_2, row.title_line_3].filter(Boolean),
+          highlightIndex: row.highlight_index,
+          desc: row.description
+        }));
+        setSlides(mappedSlides);
+      }
+    }
+    fetchSlides();
+  }, []);
+
+  useEffect(() => {
+    if (slides.length === 0) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides]);
 
   return (
-    <section className="min-h-[100dvh] lg:h-[100dvh] w-full flex items-center bg-gray-900 lg:bg-white text-sp-black overflow-hidden relative pt-[80px] border-b-[8px] border-sp-black box-border">
+    <section className="min-h-[100dvh] w-full flex flex-col justify-center bg-gray-900 lg:bg-white text-sp-black overflow-hidden relative pt-[112px] pb-8 border-b-[8px] border-sp-black box-border">
       
       {/* MOBILE FULL-BLEED BACKGROUND IMAGE */}
       <div className="absolute inset-0 block lg:hidden z-0 border-b-[6px] border-sp-black overflow-hidden">
@@ -81,7 +87,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 h-[calc(100vh-80px)] lg:h-full lg:max-w-[85rem] lg:mx-auto flex flex-col justify-end lg:justify-center py-6 lg:py-6">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-112px)] lg:max-w-[85rem] lg:mx-auto flex flex-col justify-end lg:justify-center py-6 lg:py-6">
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-0 lg:gap-12 xl:gap-16 w-full h-full lg:h-[90%] lg:max-h-[700px]">
           
           {/* Text Side (Docked Bottom Sheet on Mobile, Standard Flex on Desktop) */}
