@@ -1,0 +1,29 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Run every 2 days at midnight UTC to prevent Supabase auto-pause
+    - cron: '0 0 */2 * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Database
+        env:
+          SUPABASE_URL: "https://yruvhpqgfriutocauqmq.supabase.co"
+          SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlydXZocHFnZnJpdXRvY2F1cW1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNzE0ODgsImV4cCI6MjEwMzg0NzQ4OH0.DpsZ7LOycAE41PFvlAcBXEmxuw5LfXqlCMpeVkjZcIY"
+        run: |
+          echo "Pinging Supabase to keep project active..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            "$SUPABASE_URL/rest/v1/courses?select=id&limit=1")
+          
+          echo "Response Status: $STATUS"
+          if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 300 ]; then
+            echo "Successfully pinged Supabase!"
+          else
+            echo "Warning: Received non-200 status code - $STATUS"
+          fi
