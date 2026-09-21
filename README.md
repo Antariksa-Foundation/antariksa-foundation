@@ -1,16 +1,64 @@
-# React + Vite
+<div align="center">
+  <img src="public/a-logo.png" alt="Antariksa Foundation Logo" width="150" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  # Antariksa Foundation
+  
+  **Building the space workforce of the future through experiential learning, community-building, and joint R&D.**
+</div>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Overview
 
-## React Compiler
+Welcome to the official public repository for the **[Antariksa Foundation](https://antariksa-foundation.org)** web portal. This platform serves as our primary interface for students, partners, and donors to learn about our mission, explore our courses, join our community, and support our initiatives.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+This project is built with modern, high-performance web technologies:
+* **Frontend:** React.js, Vite, Tailwind CSS
+* **Backend / Database:** Supabase (PostgreSQL)
+* **Payments & Donations:** Razorpay Integration
+* **Hosting:** Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Local Development
+
+To get this project running on your local machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Antariksa-Foundation/antariksa-foundation-main.git
+   cd antariksa-foundation-main
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup:**
+   Create a `.env` file in the root directory and add the necessary environment variables:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+   *(Note: Payment and Cloudflare keys should only be configured in your production Vercel environment to ensure security.)*
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+## 📁 Repository Structure
+
+* `/src/components`: Reusable UI components (Navbar, Footer, Hero, etc.)
+* `/src/pages`: Main application routes (Home, Who We Are, Support Us, etc.)
+* `/public`: Static assets (Logos, Icons, etc.)
+* `/supabase`: Edge functions and database schemas
+
+## 🤝 Contributing
+For internal team members: Please ensure all changes are tested locally before pushing to the `main` branch. Production deployments are automatically triggered via Vercel upon merging.
+
+---
+<div align="center">
+  <i>&copy; Antariksa Foundation for Education Skill Development and Exploration</i>
+</div>
